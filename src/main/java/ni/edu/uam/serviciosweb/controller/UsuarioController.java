@@ -1,5 +1,6 @@
 package ni.edu.uam.serviciosweb.controller;
 
+import javafx.collections.FXCollections;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -51,6 +52,21 @@ public class UsuarioController {
             }
         };
 
-
+        btnConsultar.disableProperty().bind(task.runningProperty());
+        lblEstado.setText("Consultando API REST..........");
+        // En caso de que el resultado haya sido exitoso
+        task.setOnSucceeded(e -> {
+            List<Usuario> usuarios = task.getValue();
+            tblUsuarios.setItems(FXCollections.observableArrayList(usuarios));
+            lblEstado.setText("Usuarios encontrados:");
+        } );
+        // En caso de error
+        task.setOnFailed(e -> {
+            Throwable error = task.getException();
+            lblEstado.setText(error.getMessage());
+        });
+        Thread hilo = new Thread(task);
+        hilo.setDaemon(true);
+        hilo.start();
     }
 }
