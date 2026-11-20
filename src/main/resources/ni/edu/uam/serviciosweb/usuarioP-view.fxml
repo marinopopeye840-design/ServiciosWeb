@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane  xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.serviciosweb.controller.UsuarioPController">
+    <children>
+
+        <Label layoutX="24.0" layoutY="15.0" prefHeight="28.0" prefWidth="500.0" text="Consulta de clientes - Supabase">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="24.0" layoutY="48.0" text="Información personal y financiera obtenida mediante API REST" />
+
+        <Button fx:id="btnConsultar" layoutX="24.0" layoutY="85.0" mnemonicParsing="false" onAction="#consultarUsuarios" prefHeight="30.0" prefWidth="155.0" text="Consultar clientes" />
+
+        <Label fx:id="lblEstado" layoutX="195.0" layoutY="92.0" text="Presione Consultar clientes" />
+
+        <Label layoutX="24.0" layoutY="140.0" text="Registros de clientes">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Label>
+
+        <TableView fx:id="tblUsuariosP" layoutX="24.0" layoutY="175.0" prefHeight="340.0" prefWidth="1495.0">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="colNombre" prefWidth="110.0" text="Nombre" />
+                <TableColumn fx:id="colApellido" prefWidth="110.0" text="Apellido" />
+                <TableColumn fx:id="colCorreo" prefWidth="200.0" text="Correo" />
+                <TableColumn fx:id="colTelefono" prefWidth="130.0" text="Teléfono" />
+                <TableColumn fx:id="colFechaNacimiento" prefWidth="140.0" text="Fecha de nacimiento" />
+                <TableColumn fx:id="colPais" prefWidth="110.0" text="País" />
+                <TableColumn fx:id="colCiudad" prefWidth="130.0" text="Ciudad" />
+                <TableColumn fx:id="colDireccion" prefWidth="180.0" text="Dirección" />
+                <TableColumn fx:id="colIngreso" prefWidth="130.0" text="Ingreso anual" />
+                <TableColumn fx:id="colPuntaje" prefWidth="120.0" text="Puntaje crediticio" />
+                <TableColumn fx:id="colDeuda" prefWidth="110.0" text="¿Tiene deuda?" />
+                <TableColumn fx:id="colMontoDeuda" prefWidth="130.0" text="Monto de deuda" />
+                <TableColumn fx:id="colEstado" prefWidth="100.0" text="Estado" />
+            </columns>
+        </TableView>
+
+    </children>
+</AnchorPane>
